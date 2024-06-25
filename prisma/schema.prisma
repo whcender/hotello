@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum PropertyCategory {
+  HOTEL
+  HOUSE
+  APARTMENT
+  BED_AND_BREAKFAST
+  HOSTEL
+  RESORT
+  VILLA
+  CABIN
+  COTTAGE
+  GUESTHOUSE
+}
+
+model Property {
+  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  userid              String
+  title               String
+  description         String
+  category            String
+  images              String
+  country             String
+  state               String
+  city                String
+  locationDescription String
+  guests              Int
+  Bedrooms            Int
+  Beds                Int
+  gym                 Boolean   @default(false)
+  publicPool          Boolean   @default(false)
+  freeWifi            Boolean   @default(false)
+  restaurant          Boolean   @default(false)
+  parking             Boolean   @default(false)
+  noSmoking           Boolean   @default(false)
+  bathtub             Boolean   @default(false)
+  roomServices        Boolean   @default(false)
+  price               Int
+  addedAt             DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  bookings            Booking[]
+
+  @@index([title], name: "title_index")
+}
+
+model Booking {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  userName        String
+  userEmail       String
+  userId          String
+  propertyId      String   @db.ObjectId
+  hotelOwnerId    String
+  checkInDate     DateTime
+  checkOutDate    DateTime
+  totalPrice      Int
+  paymentStatus   Boolean  @default(false)
+  paymentIntentId String   @unique
+  bookedAt        DateTime @default(now())
+
+  Property Property @relation(fields: [propertyId], references: [id])
+
+  @@index([propertyId], name: "propertyId_index")
+}
