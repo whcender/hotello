@@ -32,7 +32,7 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import getLocation from "@/app/utils/getLocation"
 import { ICity, IState } from "country-state-city"
-import prismadb from "@/lib/prismadb"
+import { prismadb } from "@/lib/prismadb"
 import { useRouter } from "next/navigation"
 import {
   Bath,
@@ -54,7 +54,7 @@ import {
 } from "lucide-react"
 
 interface AddPropertyType {
-  property: PropertylType | null
+  property: PropertylType | undefined;
 }
 
 const categories = [
@@ -631,11 +631,10 @@ const AddPropertyForm = ({ property }: AddPropertyType) => {
                           </p>
                         )}
                         <UploadButton
-                          className={`ut-button:bg-primary ${
-                            images && images.length >= 6
+                          className={`ut-button:bg-primary ${images && images.length >= 6
                               ? "ut-button:pointer-events-none"
                               : ""
-                          }`}
+                            }`}
                           endpoint="imageUploader"
                           onClientUploadComplete={(res) => {
                             // Do something with the response

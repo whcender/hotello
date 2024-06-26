@@ -19,8 +19,12 @@ const page = async ({ params }: Props) => {
   //console.log(userId)
   return (
     <div className="max-w[1920px] w-full mx-auto xl:px-20 py-4 px-4">
+    {hotel ? (
       <AddPropertyForm property={hotel} />
-    </div>
+    ) : (
+      <div>Loading...</div>
+    )}
+  </div>
   )
 }
 
