@@ -30,12 +30,7 @@ export const SIDENAV_ITEMS: SideNavItem[] = [
     icon: <Hotel />,
     submenu: false,
   },
-  {
-    title: "Messages",
-    path: "/messages",
-    icon: <MessageSquareText />,
-    submenu: false,
-  },
+ 
   {
     title: "Account Settings",
     path: "/dashboard/account",
