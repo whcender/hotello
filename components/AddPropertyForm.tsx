@@ -54,7 +54,7 @@ import {
 } from "lucide-react"
 
 interface AddPropertyType {
-  property: PropertylType | undefined;
+  property: PropertylType | null | undefined;
 }
 
 const categories = [
