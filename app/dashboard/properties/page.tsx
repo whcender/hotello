@@ -1,5 +1,5 @@
 "use client"
-import prismadb from "@/lib/prismadb"
+import { prismadb } from "@/lib/prismadb"
 import { useUser } from "@clerk/nextjs"
 import axios from "axios"
 import React, { useEffect } from "react"

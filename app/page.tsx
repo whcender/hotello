@@ -10,6 +10,7 @@ import { LoaderCircle } from "lucide-react"
 import { getProperties } from "@/actions/getProperties"
 import SearchInput from "@/components/SearchInput"
 import Filters from "@/components/Filters"
+import References from "@/components/References"
 
 interface Props {
   searchParams: {
@@ -91,6 +92,7 @@ export default function Home({ searchParams }: Props) {
   }
   return (
     <Container>
+      <References />
       <div className="flex flex-col gap-5 my-10">
         <SearchInput />
         <Filters />
@@ -104,6 +106,7 @@ export default function Home({ searchParams }: Props) {
             <div className="flex justify-center p-4">
               <LoaderCircle className="animate-spin h-10 w-10 " />
             </div>
+            // Skeleton loaderı geçmek için etkinleştirin!
             // <div>
             //   <PropertyListSkeleton />
             // </div>

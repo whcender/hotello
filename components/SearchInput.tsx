@@ -5,6 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import qs from "query-string"
 import { Search } from "lucide-react"
 
+import Link from "next/link"
+
 const SearchInput = () => {
   const [value, setValue] = useState("")
   const pathname = usePathname()
@@ -30,7 +32,7 @@ const SearchInput = () => {
 
   const handleSearch = () => {
     const query = {
-      title: value,
+      title: value.toLowerCase(),
     }
     const url = qs.stringifyUrl(
       {
@@ -44,11 +46,13 @@ const SearchInput = () => {
     )
     router.push(url)
   }
+
   return (
     <div className="w-full max-w-[600px] mx-auto flex items-center gap-4">
+
       <div className="relative w-full">
         <Input
-          placeholder="Search"
+          placeholder="search"
           onChange={(e) => setValue(e.target.value)}
           className="h-14 rounded-full w-full px-4"
         />

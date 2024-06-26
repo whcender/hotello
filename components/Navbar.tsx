@@ -32,8 +32,8 @@ const Navbarr = () => {
     >
       <Link href="/">
         <h1 className="font-bold text-2xl">
-          <span className="text-foreground">Stay</span>
-          <span className="text-primary">Ease</span>
+          <span className="text-foreground">arlan</span>
+          <span className="text-primary">House</span>
         </h1>
       </Link>
       <div className="flex flex-row items-center gap-6">

@@ -1,5 +1,5 @@
 import useBookProperty from "@/hooks/useBookProperty"
-import prismadb from "@/lib/prismadb"
+import {prismadb} from "@/lib/prismadb"
 import { currentUser } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server"
 import Stripe from "stripe"

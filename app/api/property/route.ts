@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prismadb"
+import {prismadb} from "@/lib/prismadb"
 import { useAuth } from "@clerk/nextjs"
 import { getAuth } from "@clerk/nextjs/server"
 import { NextRequest, NextResponse } from "next/server"

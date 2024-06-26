@@ -1,4 +1,4 @@
-import prismadb from "@/lib/prismadb"
+import {prismadb} from "@/lib/prismadb"
 
 const getPoperty = async (propertyid: string) => {
   try {

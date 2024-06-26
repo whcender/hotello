@@ -19,6 +19,8 @@ import { extractRouterConfig } from "uploadthing/server"
 import { ourFileRouter } from "./api/uploadthing/core"
 import Navbarr from "@/components/Navbar"
 
+
+
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] })
 
 export const metadata: Metadata = {
@@ -26,11 +28,15 @@ export const metadata: Metadata = {
   description: "StayEase | Vacation rentals, cabins, beach houses, & more",
 }
 
-export default function RootLayout({
+
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+
+
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
@@ -41,16 +47,16 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-            <Toaster />
-            <main>
-              <Navbarr />
-              {/* <Container> */}
-              {/* <Header /> */}
-              {children}
-              <Footer />
-              {/* </Container> */}
-            </main>
+              <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+              <Toaster />
+              <main>
+                <Navbarr />
+                {/* <Container> */}
+                {/* <Header /> */}
+                {children}
+                <Footer />
+                {/* </Container> */}
+              </main>
           </ThemeProvider>
         </body>
       </html>
